@@ -162,6 +162,16 @@ export default function Home() {
                     <div className="flex gap-3 p-4 rounded-xl bg-brand-500/[0.04] border border-brand-500/10">
                       <span className="text-brand-400 text-sm flex-shrink-0 mt-0.5">💡</span>
                       <div className="text-sm text-neutral-400 leading-relaxed">
+                        설치 후 <strong className="text-neutral-300">&quot;Create new vault&quot;</strong>를 선택하세요.
+                        <br />
+                        <span className="text-neutral-500">볼트 이름은 자유롭게 지어도 됩니다. (예: 업무관리, MyWorkspace)</span>
+                      </div>
+                    </div>
+
+                    {/* Vault 설명 */}
+                    <div className="flex gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/[0.04]">
+                      <span className="text-neutral-500 text-sm flex-shrink-0 mt-0.5">💡</span>
+                      <div className="text-sm text-neutral-400 leading-relaxed">
                         <strong className="text-neutral-300">vault(볼트)</strong>는 옵시디언에서 작업하는 공간(폴더)을 의미합니다. 옵시디언은 이 폴더 안의 문서를 읽고 수정하고 생성합니다.
                         <br />
                         <span className="text-neutral-500">볼트를 새로 만들어도 되지만, 여러분이 작업하신 문서가 저장되어 있는 곳을 볼트로 사용하셔도 됩니다.</span>
