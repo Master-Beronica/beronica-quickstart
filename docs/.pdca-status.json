@@ -1,0 +1,65 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-03-24T13:17:35.582Z",
+  "activeFeatures": [
+    "installer"
+  ],
+  "primaryFeature": "installer",
+  "features": {
+    "installer": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-03-24T13:11:54.584Z",
+        "lastUpdated": "2026-03-24T13:17:35.582Z"
+      },
+      "lastFile": "c:/Users/judea/OneDrive/3_Popup/_dev/beronica-quickstart/installer/test-install.ps1"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-03-24T10:18:38.078Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-03-24T13:17:35.582Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-03-24T13:11:54.584Z",
+      "feature": "installer",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-24T13:12:18.274Z",
+      "feature": "installer",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-24T13:14:07.577Z",
+      "feature": "installer",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-24T13:14:13.720Z",
+      "feature": "installer",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-03-24T13:17:35.582Z",
+      "feature": "installer",
+      "phase": "do",
+      "action": "updated"
+    }
+  ]
+}
