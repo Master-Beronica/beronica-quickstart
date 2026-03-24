@@ -3,6 +3,7 @@ import path from "path";
 import CodeBlock from "@/components/CodeBlock";
 import SetupPrompt from "@/components/SetupPrompt";
 import ScrollReveal from "@/components/ScrollReveal";
+import InstallerCommands from "@/components/InstallerCommands";
 
 /* ── Build-time: read setup prompt ── */
 const setupPromptText = fs.readFileSync(
@@ -172,32 +173,28 @@ export default function Home() {
             </ScrollReveal>
 
             {/* ──────────────────────────────
-               STEP 2: Claudian 설치
+               STEP 2: 플러그인 자동 설치
             ────────────────────────────── */}
             <ScrollReveal>
               <div id="step-2" className="scroll-mt-20">
-                <StepHeader number={2} title="Claudian 플러그인 설치" subtitle="Obsidian 안에서 AI와 대화하는 플러그인" />
+                <StepHeader number={2} title="플러그인 자동 설치" subtitle="명령어 한 줄로 필요한 플러그인을 모두 설치" />
 
                 <div className="ml-0 sm:ml-[68px] space-y-4">
                   <div className="glass-card rounded-2xl p-6 space-y-6">
                     {/* Sub-step 2-1 */}
                     <SubStep
                       number="2-1"
-                      title="BRAT 플러그인 설치"
-                      description="베타 플러그인을 설치할 수 있게 해주는 도우미입니다."
+                      title="커뮤니티 플러그인 활성화"
+                      description="Obsidian에서 플러그인을 사용할 수 있도록 설정합니다."
                     >
                       <ol className="space-y-2 text-sm text-neutral-400">
                         <li className="flex gap-2">
                           <span className="text-neutral-600 font-mono text-xs mt-0.5">1.</span>
-                          Obsidian → <Code>설정(⚙️)</Code> → <Code>커뮤니티 플러그인</Code>
+                          Obsidian에서 <Code>설정(⚙️)</Code> → <Code>커뮤니티 플러그인</Code>
                         </li>
                         <li className="flex gap-2">
                           <span className="text-neutral-600 font-mono text-xs mt-0.5">2.</span>
-                          <Code>제한 모드 해제</Code> → <Code>찾아보기</Code> 클릭
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">3.</span>
-                          <span><strong className="text-neutral-200">&quot;BRAT&quot;</strong> 검색 → 설치 → 활성화</span>
+                          <Code>제한 모드</Code>를 <strong className="text-neutral-200">끄기</strong>
                         </li>
                       </ol>
                     </SubStep>
@@ -208,36 +205,10 @@ export default function Home() {
                     {/* Sub-step 2-2 */}
                     <SubStep
                       number="2-2"
-                      title="BRAT에서 Claudian 추가"
-                      description="BRAT를 통해 Claudian을 설치합니다."
+                      title="설치 스크립트 실행"
+                      description="터미널에서 아래 명령어를 복사하여 실행하세요. Claudian 포함 5개 플러그인이 자동 설치됩니다."
                     >
-                      <ol className="space-y-2 text-sm text-neutral-400 mb-4">
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">1.</span>
-                          <Code>설정(⚙️)</Code> → 좌측 메뉴 <Code>BRAT</Code>
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">2.</span>
-                          <strong className="text-neutral-200">&quot;Add Beta Plugin&quot;</strong> 클릭
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">3.</span>
-                          아래 URL을 복사하여 붙여넣기
-                        </li>
-                      </ol>
-
-                      <CodeBlock code="https://github.com/YishenTu/claudian" lang="url" />
-
-                      <ol start={4} className="space-y-2 text-sm text-neutral-400 mt-4">
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">4.</span>
-                          <strong className="text-neutral-200">&quot;Add Plugin&quot;</strong> → 설치 완료 대기
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">5.</span>
-                          <Code>설정</Code> → <Code>커뮤니티 플러그인</Code> → <strong className="text-neutral-200">Claudian</strong> 활성화
-                        </li>
-                      </ol>
+                      <InstallerCommands />
                     </SubStep>
 
                     {/* Divider */}
@@ -246,16 +217,24 @@ export default function Home() {
                     {/* Sub-step 2-3 */}
                     <SubStep
                       number="2-3"
-                      title="API 연결"
-                      description="AI 엔진을 연결합니다."
+                      title="Obsidian 재시작 + API 연결"
+                      description="플러그인 설치 후 AI 엔진을 연결합니다."
                     >
                       <ol className="space-y-2 text-sm text-neutral-400 mb-4">
                         <li className="flex gap-2">
                           <span className="text-neutral-600 font-mono text-xs mt-0.5">1.</span>
-                          <Code>설정(⚙️)</Code> → 좌측 메뉴 <Code>Claudian</Code>
+                          Obsidian을 <strong className="text-neutral-200">재시작</strong>합니다 (또는 <Code>Ctrl+R</Code>)
                         </li>
                         <li className="flex gap-2">
                           <span className="text-neutral-600 font-mono text-xs mt-0.5">2.</span>
+                          BRAT가 Claudian을 자동으로 설치합니다 (1~2분 대기)
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="text-neutral-600 font-mono text-xs mt-0.5">3.</span>
+                          <Code>설정(⚙️)</Code> → 좌측 메뉴 <Code>Claudian</Code>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="text-neutral-600 font-mono text-xs mt-0.5">4.</span>
                           <span><strong className="text-neutral-200">API Provider</strong> 선택:</span>
                         </li>
                       </ol>
@@ -283,13 +262,42 @@ export default function Home() {
                         </div>
                       </div>
 
-                      <ol start={3} className="space-y-2 text-sm text-neutral-400">
+                      <ol start={5} className="space-y-2 text-sm text-neutral-400">
                         <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">3.</span>
+                          <span className="text-neutral-600 font-mono text-xs mt-0.5">5.</span>
                           나머지 설정은 기본값 유지
                         </li>
                       </ol>
                     </SubStep>
+
+                    {/* What gets installed */}
+                    <div className="border-t border-white/[0.04]" />
+                    <div className="space-y-3">
+                      <div className="text-xs text-neutral-500 uppercase tracking-wider font-medium">자동 설치되는 플러그인</div>
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                        {[
+                          { name: "Claudian", desc: "AI 채팅", color: "brand" },
+                          { name: "BRAT", desc: "베타 관리", color: "neutral" },
+                          { name: "Templater", desc: "템플릿", color: "neutral" },
+                          { name: "Dataview", desc: "데이터 쿼리", color: "neutral" },
+                          { name: "Calendar", desc: "달력 뷰", color: "neutral" },
+                        ].map((p) => (
+                          <div
+                            key={p.name}
+                            className={`text-center p-2.5 rounded-lg border ${
+                              p.color === "brand"
+                                ? "bg-brand-500/[0.06] border-brand-500/20"
+                                : "bg-white/[0.02] border-white/[0.04]"
+                            }`}
+                          >
+                            <div className={`text-xs font-medium ${p.color === "brand" ? "text-brand-300" : "text-neutral-300"}`}>
+                              {p.name}
+                            </div>
+                            <div className="text-[10px] text-neutral-500 mt-0.5">{p.desc}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
