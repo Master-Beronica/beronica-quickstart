@@ -234,7 +234,7 @@ Write-Host "  ==========================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "  다음 단계:" -ForegroundColor White
 Write-Host "    1. Obsidian을 재시작하세요 (또는 Ctrl+R)" -ForegroundColor Gray
-Write-Host ("    2. 설정 -> 커뮤니티 플러그인 -> '제한 모드' 끄기") -ForegroundColor Gray
+Write-Host ("    2. 설정 -> 커뮤니티 플러그인 -> '보호 모드' 비활성화") -ForegroundColor Gray
 Write-Host ("    3. BRAT가 Claudian을 자동으로 설치합니다 (1~2분)") -ForegroundColor Gray
 Write-Host ("    4. 설정 -> Claudian -> API 키 입력") -ForegroundColor Gray
 Write-Host "    5. Claudian 채팅창에서 세팅 프롬프트를 실행하세요!" -ForegroundColor Gray

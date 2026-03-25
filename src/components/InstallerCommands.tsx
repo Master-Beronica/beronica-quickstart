@@ -54,6 +54,17 @@ export default function InstallerCommands() {
         </div>
       </div>
 
+      {/* Screenshot per OS */}
+      {os === "windows" ? (
+        <div className="rounded-xl overflow-hidden border border-white/[0.06]">
+          <img src="/step2-2-1.png" alt="Windows PowerShell 설치 실행 화면" className="w-full" />
+        </div>
+      ) : (
+        <div className="rounded-xl overflow-hidden border border-white/[0.06]">
+          <img src="/step2-2-2.png" alt="Mac/Linux 터미널 설치 실행 화면" className="w-full" />
+        </div>
+      )}
+
       {/* How to open terminal */}
       <div className="flex gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]">
         <span className="text-neutral-500 text-sm flex-shrink-0 mt-0.5">💡</span>

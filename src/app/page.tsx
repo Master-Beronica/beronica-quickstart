@@ -197,14 +197,24 @@ export default function Home() {
                       title="커뮤니티 플러그인 활성화"
                       description="Obsidian에서 플러그인을 사용할 수 있도록 설정합니다."
                     >
-                      <ol className="space-y-2 text-sm text-neutral-400">
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">1.</span>
-                          Obsidian에서 <Code>설정(⚙️)</Code> → <Code>커뮤니티 플러그인</Code>
+                      <ol className="space-y-4 text-sm text-neutral-400">
+                        <li className="space-y-3">
+                          <div className="flex gap-2">
+                            <span className="text-neutral-600 font-mono text-xs mt-0.5">1.</span>
+                            Obsidian에서 <Code>설정(⚙️)</Code> → <Code>커뮤니티 플러그인</Code>
+                          </div>
+                          <div className="rounded-xl overflow-hidden border border-white/[0.06]">
+                            <img src="/step2-1-1.jpeg" alt="Obsidian 설정 버튼 위치" className="w-full" />
+                          </div>
                         </li>
-                        <li className="flex gap-2">
-                          <span className="text-neutral-600 font-mono text-xs mt-0.5">2.</span>
-                          <Code>제한 모드</Code>를 <strong className="text-neutral-200">끄기</strong>
+                        <li className="space-y-3">
+                          <div className="flex gap-2">
+                            <span className="text-neutral-600 font-mono text-xs mt-0.5">2.</span>
+                            <Code>보호 모드</Code>를 <strong className="text-neutral-200">비활성화</strong>
+                          </div>
+                          <div className="rounded-xl overflow-hidden border border-white/[0.06]">
+                            <img src="/step2-1-2.png" alt="커뮤니티 플러그인 보호 모드 비활성화" className="w-full" />
+                          </div>
                         </li>
                       </ol>
                     </SubStep>
