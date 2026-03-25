@@ -46,11 +46,11 @@ export default function CopyButton({
 
   const variantClasses = {
     default:
-      "bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-500/30 text-neutral-300 hover:text-white",
+      "bg-white/5 hover:bg-white/10 border border-[var(--border)] hover:border-primary-400/30 text-neutral-300 hover:text-[var(--foreground)]",
     primary:
-      "bg-brand-600 hover:bg-brand-500 border border-brand-500/50 text-white shadow-lg shadow-brand-500/20",
+      "bg-primary-600 hover:bg-primary-500 border border-primary-400/50 text-white shadow-lg shadow-primary-400/20",
     ghost:
-      "bg-transparent hover:bg-white/5 text-neutral-400 hover:text-white",
+      "bg-transparent hover:bg-white/5 text-neutral-400 hover:text-[var(--foreground)]",
   };
 
   return (
@@ -62,7 +62,7 @@ export default function CopyButton({
         active:scale-95
         ${sizeClasses[size]}
         ${copied
-          ? "bg-emerald-500/20 border-emerald-500/30 text-emerald-400"
+          ? "bg-success/20 border-success/30 text-emerald-400"
           : variantClasses[variant]
         }
         ${className}

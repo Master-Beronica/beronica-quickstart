@@ -1,0 +1,760 @@
+Follow the instructions below to set up a GTD + PARA + AI Assistant task management system in my Obsidian vault.
+Execute the entire process in order, and ask me questions where needed.
+
+---
+
+## Step 0: Check & Install Recommended Plugins
+
+Check if the following plugins are installed, and if not, guide me on how to install them.
+(Settings → Community Plugins → Check the installed plugin list)
+
+| Plugin | Purpose | Priority |
+|---------|------|---------|
+| **Templater** | Auto-insert note templates (inbox, daily, etc.) | High |
+| **Calendar** | Manage daily notes in a calendar view | Medium |
+| **Dataview** | Query & filter note data as tables/lists | Medium |
+| **Tasks** | Checkbox-based task management with due date tracking | Optional |
+
+### How to Check & Guide
+> ⚙️ Plugin installation can only be done in the Obsidian app. Claude can only check installation status and provide guidance.
+
+1. Open the vault's `.obsidian/community-plugins.json` file to check installation status
+2. **All installed** → Display "All recommended plugins are installed ✅" and proceed to Step 1
+3. **If some plugins are missing**, guide the user as follows:
+   - "The following plugins are not yet installed: {list}"
+   - "How to install: Settings (⚙️) → Community Plugins → Browse → Search '{plugin name}' → Install → Enable"
+   - For Templater (High priority): "Strongly recommended"; for others: "Optional"
+4. Once the user confirms installation is complete (or chooses to skip), proceed to Step 1
+
+---
+
+## Step 1: Create GTD + PARA Folder Structure
+
+Create the following 7 folders at the vault root:
+
+- 00_데일리/
+- 01_인박스/
+- 10_단발 프로젝트/
+- 20_지속 관리 업무/
+- 30_참고자료/
+- 40_완료 프로젝트 및 업무/
+- 첨부파일/
+
+And under 30_참고자료/:
+- 30_참고자료/업무매뉴얼/
+- 30_참고자료/서류양식/
+- 30_참고자료/템플릿/
+
+For subfolders under 20_지속 관리 업무/, ask me:
+"What work areas do you manage on an ongoing basis? (e.g., Finance & Accounting, HR & Labor, Marketing, Development — please list 2-4)"
+
+Then create `30_참고자료/템플릿/Daily Note Template.md` with the following content:
+
+```
+---
+type: daily
+date: {{date}}
+mood:
+energy:
+tags: [daily]
+---
+
+# {{date}} {{요일}}
+
+---
+
+## Morning Review
+
+### Today's Focus (TOP 3)
+1.
+2.
+3.
+
+### Appointments & Meetings
+-
+
+### Energy Check
+- [ ] Got enough sleep
+- [ ] Completed morning routine
+
+---
+
+## Tasks
+
+### Must Do Today (Critical/High)
+-
+
+### Should Do (Medium)
+-
+
+### Could Do (Low)
+-
+
+### Waiting For
+-
+
+---
+
+## Inbox (Quick Capture)
+> Quickly jot down thoughts, ideas, and tasks that come up during the day.
+> During evening review, move them to `01_인박스/` or sort into the appropriate location.
+
+-
+
+---
+
+## Notes & Logs
+> Meeting notes, work logs, reference items
+
+
+---
+
+## Evening Review
+
+### Completed Today
+-
+
+### What Went Well
+
+
+### What Could Be Better
+
+
+### Tomorrow's Priority
+1.
+2.
+
+---
+
+## Quick Links
+- [[01_인박스|Inbox]]
+- [[10_단발 프로젝트|Projects]]
+```
+
+---
+
+## Step 2: Create _claude/ AI Context Folder
+
+Create the following folder structure and files **exactly** as shown:
+
+### _claude/1_identity/profile.md
+```
+# Profile
+
+## Basic Information
+- Name:
+- Email:
+
+## Professional Information
+- Company/Organization:
+- Title:
+- Role:
+
+## Personality & Values
+- Decision-making style:
+- What I value most:
+- Stressful situations:
+- Activities that energize me:
+
+## Strengths
+-
+
+## Areas for Improvement
+-
+
+## Goals
+### Short-term (3 months)
+-
+
+### Long-term (1 year)
+-
+```
+
+### _claude/1_identity/communication-pref.md
+```
+# Communication Preferences
+
+## Preferred Conversation Style with Claude
+- Response length:
+- Tone:
+- Language:
+
+## Preferred Output Format
+- For decision-making:
+- For organizing information:
+- For code-related topics:
+
+## Things to Avoid
+-
+
+## Examples of Good Responses
+-
+```
+
+### _claude/1_identity/work-style.md
+```
+# Work Style
+
+## Work Patterns
+- Peak focus hours:
+- Preferred meeting format:
+- Preferred communication channels:
+
+## How I Work
+- Multitasking vs. single-tasking:
+- Planner vs. improviser:
+- Solo vs. collaborative:
+- Big picture vs. detail-oriented:
+
+## Productivity Tools
+-
+
+## Work Patterns I Dislike
+-
+```
+
+### _claude/2_context/current-focus.md
+```
+# Current Focus
+
+> Last updated: {today's date}
+> Recommended to update weekly. Just tell Claude "Update my focus for this week."
+
+## Key Tasks This Week
+1. [ ]
+2. [ ]
+3. [ ]
+
+## Ongoing Projects
+| Project | Status | Deadline | Dependencies | Notes |
+|---------|--------|----------|-------------|-------|
+|         |        |          |             |       |
+
+## Upcoming Schedule
+| Date | Event | Preparation Needed |
+|------|-------|--------------------|
+|      |       |                    |
+
+## Current Concerns
+-
+
+## Goals for This Week
+-
+```
+
+### _claude/1_identity/my-job.md
+```
+# My Job
+
+## Organization
+- Company name:
+- Business field:
+- Organization type:
+- Team size:
+- CEO/Representative:
+
+## My Role in the Organization
+- Title:
+- Responsibilities:
+- Reporting line:
+
+## External Services
+| Service | Provider | Contact Person | Purpose | Notes |
+|---------|----------|----------------|---------|-------|
+|         |          |                |         |       |
+```
+
+### _claude/2_context/tools-stack.md
+```
+# Tools & Tech Stack
+
+## Work Tools
+| Category | Tool | Purpose | Proficiency |
+|----------|------|---------|-------------|
+| Project Management |  |  |  |
+| Communication |  |  |  |
+| Productivity |  |  |  |
+| AI Assistant | Claude (Claudian) | Task automation | |
+| Notes/Knowledge Management | Obsidian | Personal knowledge management | |
+
+## Tools/Technologies I Want to Learn
+-
+
+## Tool Usage Principles
+-
+```
+
+### _claude/2_context/routine-system.md
+```
+# Routine Check System
+> Created: {today's date}
+
+## System Overview
+A system for managing daily/weekly/monthly recurring routine tasks.
+
+### Daily Routine (Daily Morning Review)
+- **Trigger**: Automatically at the start of each day's first session / Keywords: "today's tasks", "TOP3", "morning review"
+- **Content**: Create daily note → Scan 5 sources → Suggest TOP3 → User confirmation
+- **Evening Review**: Wrap up completed items + Write Tomorrow's Priority before session ends
+- **Detailed logic**: Refer to the "Daily Morning Routine" section in CLAUDE.md
+
+### Weekly Routine (Monday Routine Check)
+- **Trigger**: Automatically at the start of Monday sessions / Keyword: "routine check"
+- Claude references the monthly routine checklist every Monday to inform you of this week's tasks.
+
+## Master File
+- Location: `30_참고자료/업무매뉴얼/월간루틴체크리스트.md`
+- Role: The master list of all routine tasks
+- Management: You add/edit/delete items directly
+
+## Usage Examples
+- "What's on my plate today?" / "TOP3" → Today's daily note + TOP3 suggestions
+- "Show me this week's routines" → This week's applicable tasks
+- "Show me all routines for this month" → Full monthly task overview
+- "Add a routine: XXX" → Add item to master file
+- "Wrap up for today" / "Evening review" → Run Evening Review
+```
+
+### _claude/3_knowledge/decisions-log.md
+```
+# Decisions Log
+
+> Record important decisions here.
+> When a similar situation arises later, Claude can reference past decisions to provide better advice.
+
+## How to Record
+Say "Record this decision" during a conversation, and Claude will add it using the format below.
+
+---
+```
+
+### _claude/3_knowledge/lessons-learned.md
+```
+# Lessons Learned
+
+> Record lessons learned from experience here.
+> Claude will reference past experiences to provide more personalized advice.
+
+## Work-Related
+-
+
+## Technology-Related
+-
+
+## Organization/Collaboration
+-
+
+## Personal Growth
+-
+```
+
+### _claude/3_knowledge/preferences.md
+```
+# Preferences
+
+> Record preferences about work and technology here.
+> Claude will reflect your tastes when making recommendations or suggestions.
+
+## Technology Preferences
+-
+
+## Work Style Preferences
+-
+
+## Content Preferences
+-
+
+## Things I Dislike
+-
+```
+
+### _claude/4_interaction/feedback-log.md
+```
+# Claude Feedback Log
+
+> Record what went well and what needs improvement in conversations with Claude.
+> This record helps Claude provide increasingly personalized responses.
+
+## What Went Well
+-
+
+## Needs Improvement
+-
+
+## Particularly Useful Moments
+-
+```
+
+### _claude/4_interaction/useful-prompts.md
+```
+# Useful Prompts
+
+> A collection of effective Claude prompts.
+> Reuse or build upon them in similar situations.
+
+## Task Automation
+-
+
+## Document Writing
+-
+
+## Decision Making
+-
+
+## Code/Technical
+-
+
+## Other
+-
+```
+
+---
+
+## Step 3: Collect Personal Information & Create Profile
+
+After creating all the files above, ask me the following questions **one at a time**.
+As I answer each, fill in the corresponding file immediately.
+
+### Questions for profile.md:
+1. "What is your name and email?"
+2. "What is your decision-making style? (Data-driven / Intuitive / Mixed)"
+3. "What do you value most in work? (Efficiency / Accuracy / Impact, etc.)"
+4. "What are your strengths and areas for improvement?"
+5. "What are your short-term (3-month) and long-term (1-year) goals?"
+
+### Questions for my-job.md:
+6. "What is your company/organization name, title, and specific role?"
+7. "Who is your reporting line (supervisor)?"
+8. "Do you regularly use any external services? (Tax accountant, legal, banking, etc.)"
+
+### Questions for communication-pref.md:
+9. "Do you prefer Claude's responses to be concise / detailed / depends on the situation?"
+10. "What conversation tone do you prefer? Casual / Business / Friendly yet professional?"
+11. "Is there anything Claude should avoid? (e.g., excessive emojis, unnecessary flattery, etc.)"
+
+### Questions for work-style.md:
+12. "When do you focus best? What is your preferred order of communication channels?"
+13. "Multitasking vs. single-tasking? Planner vs. improviser?"
+
+Once all questions are answered, complete profile.md, my-job.md, communication-pref.md, and work-style.md with the responses.
+
+---
+
+## Step 4: Create CLAUDE.md
+
+Create CLAUDE.md at the vault root. Fill in the {curly brace} placeholders with the information collected in Step 3.
+
+```
+# Claude Memory System
+
+> This file is automatically loaded at the start of every session.
+> Reference the files below to understand context about the user.
+
+## User
+- Name: {name}
+- Company: {company name}
+- Role: {role summary}
+
+## Required References (Every Session)
+- `_claude/1_identity/profile.md` — Basic info, personality, strengths/weaknesses
+- `_claude/1_identity/my-job.md` — Organization, title, responsibilities, contacts
+- `_claude/2_context/current-focus.md` — Current focus areas
+
+## Contextual References
+- Company vision/rules/org → `_company/` (shared team resource, symlink)
+- My job/contacts → `_claude/1_identity/my-job.md`
+- Tool/tech questions → `_claude/2_context/tools-stack.md`
+- Decision-making help → `_claude/3_knowledge/decisions-log.md`
+- Advice/coaching → `_claude/3_knowledge/lessons-learned.md`
+- Preference check → `_claude/3_knowledge/preferences.md`
+- Conversation style adjustment → `_claude/1_identity/communication-pref.md`
+- Claude feedback → `_claude/4_interaction/feedback-log.md`
+- Routine task check → `_claude/2_context/routine-system.md` + `30_참고자료/업무매뉴얼/월간루틴체크리스트.md`
+- Document creation/file organization → `_company/팀운영규칙.md` (auto-apply file naming, formats, and storage locations)
+
+## 🔄 Memory Sync (At Every Session Start)
+> MEMORY.md is Claude's **temporary buffer (inbox)**. `_claude/` is the sole permanent store (Single Source of Truth).
+> Content that Claude Code automatically writes to MEMORY.md during a session is classified and transferred to `_claude/` at the next session start.
+
+### Principles
+- **MEMORY.md** = Temporary buffer (working memo between sessions). Keep minimal
+- **`_claude/`** = Permanent store. The source of truth for all structured knowledge
+- No duplicates: Do not keep information in MEMORY.md if it already exists in `_claude/`
+
+### Process (Once at every session start, before all other routines)
+1. Read MEMORY.md
+2. Classify each item:
+   | Content Type | Target File |
+   |-----------|-----------|
+   | User preferences/dislikes | `_claude/3_knowledge/preferences.md` |
+   | Tool/service changes | `_claude/2_context/tools-stack.md` |
+   | Project status changes | `_claude/2_context/current-focus.md` |
+   | Important decisions | `_claude/3_knowledge/decisions-log.md` |
+   | Lessons/insights | `_claude/3_knowledge/lessons-learned.md` |
+   | Profile changes | `_claude/1_identity/profile.md` |
+   | Work style changes | `_claude/1_identity/work-style.md` |
+   | Communication preference changes | `_claude/1_identity/communication-pref.md` |
+   | Claude feedback | `_claude/4_interaction/feedback-log.md` |
+   | Behavioral rules (for Claude) | Suggest reflecting in CLAUDE.md itself |
+3. Items already reflected in `_claude/` → skip
+4. New items → Reflect in target file (save after user confirmation)
+5. Clean up MEMORY.md: Remove completed items, keep only the previous session's working state
+
+### Triggers
+- **Automatic at every session start** (runs before all other routines)
+- User keywords: "memory cleanup", "memory sync", "sync"
+
+## 📅 Daily Morning Routine — Daily Morning Review (Automatic)
+> **Every day** at session start, automatically execute the logic below.
+> Also runs when the user says "today's tasks", "TOP3", "morning review", "daily review", etc.
+
+### Triggers
+- **Automatic at the first session each day**
+- User keywords: "today's tasks", "TOP3", "morning review", "daily", "morning routine", "check tasks"
+
+### Execution Logic
+
+#### Step 1: Check/Create Today's Daily Note
+- Check if `00_데일리/{today's date}.md` exists
+- If not, auto-create based on `30_참고자료/템플릿/Daily Note Template.md`
+
+#### Step 2: Collect Today's Task Candidates (Scan 5 Sources)
+1. **Yesterday's daily note** → Check `Tomorrow's Priority` section (carry-over tasks)
+2. **`current-focus.md`** → Incomplete (`[ ]`) items that can be addressed today
+3. **`01_인박스/`** → Items with `status: inbox` that are due soon or quick to complete
+4. **`10_단발 프로젝트/`** → Next actions for projects approaching their deadline
+5. **`30_참고자료/업무매뉴얼/월간루틴체크리스트.md`** → Today's applicable routines (if file exists)
+
+#### Step 3: Suggest TOP3
+- Sort collected candidates by priority and **suggest TOP3**:
+  - 🔴 **Due soon** (due today or tomorrow) → Highest priority
+  - 🟡 **Needs to be done this week** → Important
+  - 🟢 **Nice to work on** → When time allows
+- After user confirmation/edits, record in the daily note's `Today's Focus` section
+
+#### Step 4: Today's Appointments/Meetings Reminder
+- Remind about events listed in the daily note's `Appointments & Meetings`
+- Check `current-focus.md`'s `Upcoming Schedule` for today's items
+
+### Evening Review (Before Session Ends)
+> Run when the session has been long, or when the user requests "wrap up for today", "evening review", "summarize"
+
+1. Update the `Completed Today` section in today's daily note
+2. Check incomplete items → Suggest whether to carry over to tomorrow
+3. Write `Tomorrow's Priority` (seed for tomorrow's TOP3)
+4. Suggest whether `current-focus.md` needs updating
+
+## 🔁 Monday Routine Check (Automatic)
+> **Every Monday** at session start, automatically execute the logic below.
+
+1. Read `30_참고자료/업무매뉴얼/월간루틴체크리스트.md` (skip if file doesn't exist)
+2. Based on today's date, extract tasks applicable to **this week (Mon-Fri)**:
+   - "Weekly recurring" → Always included
+   - "Monthly recurring" → Included if the date range overlaps
+   - "Quarterly/Semi-annual/Annual" → Included if it's the applicable month
+   - "Ad-hoc check" → Only included during the first week of the month (1st-5th)
+3. Present extracted items sorted by **priority**:
+   - 🔴 Due soon (due within this week)
+   - 🟡 Needs to be progressed this week
+   - 🟢 Items to review/prepare
+4. Even on non-Mondays, run the same logic if the user says "this week's routines", "routine check", "check tasks", etc.
+
+## 📥 GTD Inbox Processing Rules (Absolute Rules)
+> **Whenever the user throws a new task/to-do/idea into the chat, this process MUST be executed.**
+
+### Step 1: Capture
+- When a new task comes in, **immediately** create a note in `01_인박스/`
+- Filename: `{date}_{task title}.md`
+- Include `status: inbox`, `created: {date}`, `gtd_type: pending` in front matter
+
+### Step 2: Clarify & Organize
+Apply the GTD decision criteria below and **suggest a classification** to the user:
+
+| Criteria | Classification | Action |
+|-----------|------|------|
+| Can be done in under 2 minutes? | ⚡ Do it now | Process immediately, then move to `40_완료 프로젝트 및 업무/` |
+| Not my responsibility? | 👋 Delegate | Keep in `01_인박스/` with `gtd_type: delegated`, record delegate |
+| A project with a specific deadline? | 📋 Project | Move to `10_단발 프로젝트/` |
+| Ongoing work that needs continuous management? | 🔄 Ongoing | Move to appropriate subfolder in `20_지속 관리 업무/` |
+| Want to do someday but not now? | 💭 Someday | Keep in `01_인박스/`, tag as `gtd_type: someday` |
+| Just reference material? | 📁 Reference | Move to `30_참고자료/` |
+
+### Step 3: Engage
+- After suggesting classification and receiving user confirmation, move the file to the appropriate folder
+- Update the front matter `status` upon moving
+
+### Trigger Keywords
+- "I need to", "can you do", "to-do", "add task", "inbox", "new task" → Start GTD process
+- "clean up inbox", "GTD review", "weekly review" → Scan all of `01_인박스/`
+
+### Inbox Note Template
+---
+status: inbox
+created: {date}
+gtd_type: pending
+due:
+delegated_to:
+tags: []
+---
+# {Task Title}
+
+## Details
+{Task description}
+
+## Next Action
+- [ ] {Specific next action}
+
+## Reference
+
+## 📄 Team Operation Rules Auto-Apply (Absolute Rules)
+> If the file `_company/팀운영규칙.md` exists, **automatically reference and apply rules** in the following situations.
+
+### Auto-Apply Triggers
+| Situation | Rules Applied |
+|------|-------------|
+| "Write meeting notes", "Summarize the meeting" | Auto-apply file naming rules + meeting notes format |
+| "Where should I save this file?", "Where does this go?" | Reference storage location rules and guide |
+| "Let's start a project", "Create a new folder" | Apply folder usage rules |
+| "Write a proposal/report/SOP" | Apply file naming rules (YYMMDD_DocumentType_Title) |
+| "Delete this file" | No deletion → Guide to move to archive |
+| "Edit a _company/ file" | Read-only rule → Inform read-only, direct to edit the original in shared drive |
+| Insert team document link | Use Google Drive URL link format |
+
+### How It's Applied
+1. Detect a trigger situation above → Read `_company/팀운영규칙.md`
+2. **Automatically apply** the relevant rules to generate the output
+3. Briefly inform the user: "Applied ~~ per team operation rules"
+4. If `_company/팀운영규칙.md` doesn't exist, ignore this section
+
+## 🔄 Weekly Review
+> GTD Weekly Review. Look back on the week and review the entire system.
+
+### Auto Triggers
+- **Saturday/Sunday** session start → Suggest "Shall we do the weekly review?"
+- **Monday** session start → If the weekly review wasn't done last weekend: "It looks like the weekly review wasn't done last weekend. Shall we do it first?"
+- Run immediately when the user requests "weekly review", "GTD review"
+
+### Weekly Review Process (Required if no weekly review record exists for last week)
+> Review records are saved as `{date}_주간리뷰.md` in `00_데일리/`.
+
+#### Step 1: Inbox Cleanup
+- Scan all of `01_인박스/` → Suggest classification for unprocessed items (`status: inbox`)
+
+#### Step 2: Project Review
+- Check `current-focus.md` → Mark completed items, add new items, update deadlines
+- Scan `10_단발 프로젝트/` → Identify overdue or stalled items
+
+#### Step 3: _claude Context Review
+- `profile.md` — Any strengths/traits discovered this week to reflect?
+- `work-style.md` — Any changes in work patterns?
+- `my-job.md` — Any new contact/service information learned?
+- `preferences.md` — Any new tool/method preferences?
+- `decisions-log.md` — Any important decisions this week that weren't recorded?
+
+#### Step 4: Prepare for Next Week
+- Preview next week's routine checklist
+- Warn about upcoming deadlines
+
+## Contact & Network Management Rules
+> Automatically runs when a person's name or company/organization name is mentioned during work
+
+### Triggers
+- When a **person's name** or **company/organization name** is mentioned in conversation, start the process below
+
+### Process
+1. Search `_company/연락처/` (internal contacts, client list, external partners)
+2. Search `30_참고자료/인맥관리/`
+3. Show search results to the user and **ask whether to update**
+4. Update the relevant file after user confirmation
+
+### Update Location Criteria
+| Category | Storage Location | Content |
+|------|----------|----------|
+| Official company business relationship | `_company/연락처/거래처목록.md` | Facts only (company name, contact person, phone, contract details) |
+| Company external partnerships | `_company/연락처/외부파트너.md` | Facts only (company name, contact person, phone) |
+| Internal employee official info | `_company/연락처/내부연락처.md` | Facts only (name, title, contact info) |
+| Personal network management | `30_참고자료/인맥관리/이름.md` | Contact info + communication history + personality notes |
+
+- `_company/연락처/` records **facts (information) only**. No communication history
+- Communication history and relationship notes go **only in `30_참고자료/인맥관리/`**
+
+## Record-Keeping Rules
+
+### Auto Triggers (Claude detects → suggests update)
+| Detected in Conversation | Update Target | Decision Basis |
+|-------------|-------------|----------|
+| Product name (proper noun) + description | `_company/` related file or `my-job.md` | Proper noun match |
+| "Done", "Finished", "Completed" + project name | `current-focus.md` status change | Status keyword |
+| Tool/service name + positive/negative evaluation | `preferences.md` | Evaluation expression match |
+| External company/contact info mentioned | `_company/연락처/` or `my-job.md` external services | New proper noun |
+| Important decision made | Suggest recording in `decisions-log.md` | Decision keyword |
+| Feedback received | Record in `feedback-log.md` | Feedback expression |
+
+### User-Triggered (User requests directly)
+| Keyword | Action |
+|--------|------|
+| "Update profile", "Edit my info" | Edit `profile.md` |
+| "Update company info" | Edit `_company/` or `my-job.md` |
+| "This is my style", "My habits" | Record in `work-style.md` |
+| "Update this week's focus" | Update `current-focus.md` |
+| "Context review", "Memory check" | Scan all of `_claude/` → Report empty/outdated items |
+
+### Update Method
+- When content to update is found, suggest after the task is done: "Shall I reflect ~~ in ○○.md?"
+- Execute update after user confirmation
+- For minor items, batch them and suggest all at once before the session ends
+
+## Vault Structure
+00_데일리/                — Daily notes
+01_인박스/                — Unsorted memos, quick capture
+10_단발 프로젝트/          — One-off tasks with deadlines
+20_지속 관리 업무/         — Ongoing management areas
+30_참고자료/              — Reference knowledge
+40_완료 프로젝트 및 업무/  — Completed/inactive materials
+첨부파일/                 — Images, attachments
+_claude/                  — Claude Memory System (personal context)
+_company/                 — Shared team resource (symlink, vision/rules/contacts)
+```
+
+---
+
+## Step 5: Verification
+Once all files have been created, do the following:
+
+1. Show the list of created folders/files
+2. Display the checklist below:
+   - [ ] Confirmed 7 folders created at vault root
+   - [ ] Confirmed 4 subfolders + 12 files created in _claude/
+   - [ ] Confirmed personal information entered in profile.md
+   - [ ] Confirmed organization/title/contacts entered in my-job.md
+   - [ ] Confirmed preferences entered in communication-pref.md
+   - [ ] Confirmed work style entered in work-style.md
+   - [ ] Confirmed CLAUDE.md created + user information reflected
+   - [ ] Confirmed Daily Note Template created (`30_참고자료/템플릿/Daily Note Template.md`)
+   - [ ] Confirmed CLAUDE.md includes Daily Morning Routine + Monday Routine Check sections
+3. Display: "Setup is complete! Try testing it: Say 'I need to write the quarterly report by next week.'"
+4. Display: "The daily morning routine is also set up. Say 'TOP3' or 'today's tasks' and it will organize your to-dos for the day."
+
+---
+
+## Reference: About This System
+
+### GTD (Getting Things Done) Workflow
+Capture all new tasks in 01_인박스 first → Classify (do in under 2 min / delegate / project / ongoing / someday / reference) → Move to the appropriate folder
+
+### PARA (Projects, Areas, Resources, Archive) Structure
+- 10_단발 프로젝트/ = Projects (tasks with a start and end)
+- 20_지속 관리 업무/ = Areas (domains requiring ongoing management)
+- 30_참고자료/ = Resources (reference knowledge)
+- 40_완료 프로젝트 및 업무/ = Archive (completed/inactive)
+
+### Front Matter Format
+Apply the following YAML front matter to all task notes:
+- status: inbox / active / delegated / someday / done
+- created: date
+- gtd_type: pending / project / area / reference / someday / delegated
+- due: deadline
+- delegated_to: delegate target
+- tags: []
+
+→ Execute everything in order. Start from Step 1!

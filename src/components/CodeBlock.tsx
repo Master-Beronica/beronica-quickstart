@@ -14,10 +14,10 @@ export default function CodeBlock({
   showLineNumbers = false,
 }: CodeBlockProps) {
   return (
-    <div className="group relative rounded-xl overflow-hidden border border-white/[0.06] bg-[#0c0c0c]">
+    <div className="group relative rounded-xl overflow-hidden border border-[var(--border)] bg-[var(--background)]">
       {/* Header bar */}
-      <div className="flex items-center justify-between px-4 py-2 bg-white/[0.02] border-b border-white/[0.06]">
-        <span className="text-[11px] text-neutral-500 uppercase tracking-wider font-medium">
+      <div className="flex items-center justify-between px-4 py-2 bg-white/[0.02] border-b border-[var(--border)]">
+        <span className="text-[11px] text-[var(--muted-foreground)] uppercase tracking-wider font-medium">
           {lang}
         </span>
         <CopyButton text={code} label="복사" size="sm" variant="ghost" />
