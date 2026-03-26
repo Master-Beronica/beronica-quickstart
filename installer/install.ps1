@@ -1,4 +1,5 @@
-﻿Set-StrictMode -Off
+﻿# Beronica Installer
+Set-StrictMode -Off
 $ErrorActionPreference = "Stop"
 
 # Version check (replaces #Requires which breaks with irm | iex due to BOM)
