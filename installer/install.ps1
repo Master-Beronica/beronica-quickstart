@@ -34,23 +34,23 @@ $bratPluginList = @("YishenTu/claudian")
 # ── 볼트 자동 감지 ──
 function Find-ObsidianVaults {
     $configPath = Join-Path $env:APPDATA "obsidian\obsidian.json"
-    if (-not (Test-Path $configPath)) { return @() }
+    if (-not (Test-Path $configPath)) { return ,@() }
 
-    $config = Get-Content $configPath -Raw | ConvertFrom-Json
-    $vaults = @()
+    $config = Get-Content $configPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $vaults = [System.Collections.ArrayList]::new()
 
     foreach ($prop in $config.vaults.PSObject.Properties) {
         $vaultPath = $prop.Value.path
-        if (Test-Path $vaultPath) {
-            $vaults += $vaultPath
+        if ($vaultPath -and (Test-Path $vaultPath)) {
+            [void]$vaults.Add($vaultPath)
         }
     }
-    return $vaults
+    return ,$vaults.ToArray()
 }
 
 # ── 볼트 경로 선택 ──
 function Select-VaultPath {
-    $vaults = Find-ObsidianVaults
+    $vaults = @(Find-ObsidianVaults)
 
     if ($vaults.Count -eq 0) {
         Write-Warn "Obsidian 볼트를 자동으로 찾지 못했습니다."
