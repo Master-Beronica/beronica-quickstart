@@ -1,18 +1,11 @@
-﻿#Requires -Version 5.1
-<#
-.SYNOPSIS
-  Beronica - Obsidian Plugin Installer (Windows)
-.DESCRIPTION
-  Obsidian vault에 Beronica에 필요한 플러그인을 자동 설치합니다.
-  - BRAT (베타 플러그인 관리)
-  - Claudian (AI 채팅 플러그인, BRAT 경유 자동 업데이트)
-  - Templater (노트 템플릿)
-  - Dataview (노트 쿼리)
-  - Calendar (달력 뷰)
-#>
-
-Set-StrictMode -Version Latest
+﻿Set-StrictMode -Off
 $ErrorActionPreference = "Stop"
+
+# Version check (replaces #Requires which breaks with irm | iex due to BOM)
+if ($PSVersionTable.PSVersion.Major -lt 5) {
+    Write-Host "PowerShell 5.1 이상이 필요합니다. 현재: $($PSVersionTable.PSVersion)" -ForegroundColor Red
+    return
+}
 
 # ── 색상 헬퍼 ──
 function Write-Step  ($msg) { Write-Host "`n  [*] $msg" -ForegroundColor Cyan }
