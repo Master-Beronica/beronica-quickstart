@@ -1,4 +1,4 @@
-﻿# Beronica Installer
+# Beronica Installer
 Set-StrictMode -Off
 $ErrorActionPreference = "Stop"
 
