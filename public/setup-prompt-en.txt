@@ -3,6 +3,41 @@ Execute the entire process step by step, and ask me questions where needed.
 
 ---
 
+## Pre-Step: Detect Installation Mode
+
+> **Run this step first. The result determines how the entire process behaves.**
+
+Check whether the `_claude/` folder already exists in the vault.
+
+### If it does NOT exist → 🆕 Fresh Install Mode
+- Execute all steps below **from the beginning, in order**
+- Create all folders and files from scratch
+
+### If it DOES exist → 🔄 Update Mode
+- Inform the user: "An existing Beronica system has been detected. Proceeding in update mode."
+- Apply the following **update principles** to all steps:
+
+#### Update Principles
+1. **Preserve User Data (Absolute Rule)**
+   - NEVER overwrite files that contain user-entered content
+   - Protected files: `profile.md`, `my-job.md`, `communication-pref.md`, `work-style.md`, `current-focus.md`, `decisions-log.md`, `lessons-learned.md`, `preferences.md`, `feedback-log.md`, `useful-prompts.md`
+2. **Add New Items Only**
+   - Folders/files newly added in this version → create them
+   - New sections added to existing files → add only those sections (preserve existing content)
+3. **Update System Logic**
+   - System sections in `CLAUDE.md` (routines, GTD rules, recording rules, etc.) → replace with the latest version
+   - However, user info (name, company, role) → preserve
+4. **Skip Step 3 (Questions)**
+   - Do not re-ask profile questions that are already filled in
+5. **Change Report**
+   - At the end, output a "Changes made in this update" report:
+     - ✅ Newly added files/folders
+     - ✅ Updated system sections
+     - ⏭️ Preserved user data files
+     - ⚠️ Items requiring manual review (if any)
+
+---
+
 ## Step 0: Check & Install Recommended Plugins
 
 Check whether the following plugins are installed, and if not, guide me through the installation.
@@ -412,6 +447,8 @@ During a conversation, say "log this decision" and Claude will add it using the 
 
 ## Step 3: Collect Personal Information & Build Profile
 
+> 🔄 **Update Mode**: If `profile.md` and other files already contain user data, skip this step and proceed to Step 4. However, if this version introduces new fields, ask only those additional questions.
+
 After creating all the files above, ask me the following questions **one at a time**.
 As I answer each one, fill in the corresponding file immediately.
 
@@ -441,6 +478,8 @@ Once all questions are answered, finalize profile.md, my-job.md, communication-p
 ---
 
 ## Step 4: Create CLAUDE.md
+
+> 🔄 **Update Mode**: If CLAUDE.md already exists, **preserve user info (name/company/role)** and only replace system sections (routines, GTD rules, recording rules, etc.) with the latest content below. Also preserve any custom sections the user has added.
 
 Create CLAUDE.md at the vault root. Insert the information collected in Step 3 into the {curly brace} placeholders.
 
@@ -692,6 +731,7 @@ _claude/                 — Claude Memory System (personal context)
 ## Step 5: Verification
 Once all files have been created, do the following:
 
+### 🆕 For Fresh Install:
 1. Display the list of created folders/files
 2. Show the following checklist:
    - [ ] 7 folders created at vault root confirmed
@@ -705,6 +745,25 @@ Once all files have been created, do the following:
    - [ ] CLAUDE.md includes Daily Morning Review + Monday Routine Check sections confirmed
 3. Display: "Setup complete! Try it out: say 'I need to write the quarterly report by next week.'"
 4. Display: "The daily morning routine is also configured. Say 'TOP3' or 'today's tasks' to organize your day."
+
+### 🔄 For Update:
+1. Output a **change report** in the following format:
+```
+## Update Complete Report
+
+### ✅ Newly Added
+- (List of files/folders/sections newly created in this version)
+
+### ✅ System Updated
+- (List of sections replaced with latest logic in CLAUDE.md, etc.)
+
+### ⏭️ Preserved (No Changes)
+- (List of files with user data that were left untouched)
+
+### ⚠️ Manual Review Needed (if applicable)
+- (Items that require user verification/adjustment)
+```
+2. Display: "Update complete! All your existing data has been preserved."
 
 ---
 
