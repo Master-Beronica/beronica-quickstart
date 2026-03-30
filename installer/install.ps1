@@ -27,9 +27,10 @@ $plugins = @(
     @{ id = "templater-obsidian";       repo = "SilentVoid13/Templater" }
     @{ id = "dataview";                 repo = "blacksmithgu/obsidian-dataview" }
     @{ id = "calendar";                 repo = "liamcain/obsidian-calendar-plugin" }
+    @{ id = "claudian";                 repo = "YishenTu/claudian" }
 )
 
-# Claudian은 BRAT 경유 설치 (비공식 플러그인)
+# BRAT에도 등록 (향후 자동 업데이트용)
 $bratPluginList = @("YishenTu/claudian")
 
 # ── 볼트 자동 감지 ──
