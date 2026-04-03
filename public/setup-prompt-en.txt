@@ -7,7 +7,7 @@ Execute the entire process step by step, and ask me questions where needed.
 
 > **Run this step first. The result determines how the entire process behaves.**
 
-Check whether the `_claude/` folder already exists in the vault.
+Check whether the `_me/` folder already exists in the vault.
 
 ### If it does NOT exist → 🆕 Fresh Install Mode
 - Execute all steps below **from the beginning, in order**
@@ -79,6 +79,7 @@ Then create subfolders under 30_resources/:
 - 30_resources/manuals/
 - 30_resources/forms/
 - 30_resources/templates/
+- 30_resources/contacts/
 
 For subfolders under 20_areas/, ask me:
 "What work areas do you manage on an ongoing basis? (e.g., Finance, HR, Marketing, Development — please list 2-4)"
@@ -168,11 +169,11 @@ tags: [daily]
 
 ---
 
-## Step 2: Create _claude/ AI Context Folder
+## Step 2: Create _me/ AI Context Folder
 
 Create the following folder structure and files **exactly** as shown:
 
-### _claude/1_identity/profile.md
+### _me/1_identity/profile.md
 ```
 # Profile
 
@@ -205,7 +206,7 @@ Create the following folder structure and files **exactly** as shown:
 -
 ```
 
-### _claude/1_identity/communication-pref.md
+### _me/1_identity/communication-pref.md
 ```
 # Communication Preferences
 
@@ -226,7 +227,7 @@ Create the following folder structure and files **exactly** as shown:
 -
 ```
 
-### _claude/1_identity/work-style.md
+### _me/1_identity/work-style.md
 ```
 # Work Style
 
@@ -248,7 +249,7 @@ Create the following folder structure and files **exactly** as shown:
 -
 ```
 
-### _claude/2_context/current-focus.md
+### _me/2_context/current-focus.md
 ```
 # Current Focus
 
@@ -277,7 +278,7 @@ Create the following folder structure and files **exactly** as shown:
 -
 ```
 
-### _claude/1_identity/my-job.md
+### _me/1_identity/my-job.md
 ```
 # My Job
 
@@ -299,7 +300,7 @@ Create the following folder structure and files **exactly** as shown:
 |         |          |               |         |       |
 ```
 
-### _claude/2_context/tools-stack.md
+### _me/2_context/tools-stack.md
 ```
 # Tools & Tech Stack
 
@@ -319,7 +320,7 @@ Create the following folder structure and files **exactly** as shown:
 -
 ```
 
-### _claude/2_context/routine-system.md
+### _me/2_context/routine-system.md
 ```
 # Routine Check System
 > Created: {today's date}
@@ -350,7 +351,7 @@ A system for managing daily/weekly/monthly recurring routine tasks.
 - "Wrap up today" / "Evening review" > Run Evening Review
 ```
 
-### _claude/3_knowledge/decisions-log.md
+### _me/3_knowledge/decisions-log.md
 ```
 # Decisions Log
 
@@ -363,7 +364,7 @@ During a conversation, say "log this decision" and Claude will add it using the 
 ---
 ```
 
-### _claude/3_knowledge/lessons-learned.md
+### _me/3_knowledge/lessons-learned.md
 ```
 # Lessons Learned
 
@@ -383,7 +384,7 @@ During a conversation, say "log this decision" and Claude will add it using the 
 -
 ```
 
-### _claude/3_knowledge/preferences.md
+### _me/3_knowledge/preferences.md
 ```
 # Preferences
 
@@ -403,7 +404,7 @@ During a conversation, say "log this decision" and Claude will add it using the 
 -
 ```
 
-### _claude/4_interaction/feedback-log.md
+### _me/4_interaction/feedback-log.md
 ```
 # Claude Feedback Log
 
@@ -420,7 +421,7 @@ During a conversation, say "log this decision" and Claude will add it using the 
 -
 ```
 
-### _claude/4_interaction/useful-prompts.md
+### _me/4_interaction/useful-prompts.md
 ```
 # Useful Prompts
 
@@ -495,45 +496,45 @@ Create CLAUDE.md at the vault root. Insert the information collected in Step 3 i
 - Role: {role summary}
 
 ## Required References (Every Session)
-- `_claude/1_identity/profile.md` — Basic info, personality, strengths/weaknesses
-- `_claude/1_identity/my-job.md` — Organization, title, responsibilities, external services
-- `_claude/2_context/current-focus.md` — Current focus areas
+- `_me/1_identity/profile.md` — Basic info, personality, strengths/weaknesses
+- `_me/1_identity/my-job.md` — Organization, title, responsibilities, external services
+- `_me/2_context/current-focus.md` — Current focus areas
 
 ## Contextual References
-- My job/external services > `_claude/1_identity/my-job.md`
-- Tools/tech questions > `_claude/2_context/tools-stack.md`
-- Decision-making help > `_claude/3_knowledge/decisions-log.md`
-- Advice/coaching > `_claude/3_knowledge/lessons-learned.md`
-- Preferences > `_claude/3_knowledge/preferences.md`
-- Communication style > `_claude/1_identity/communication-pref.md`
-- Claude feedback > `_claude/4_interaction/feedback-log.md`
-- Routine task check > `_claude/2_context/routine-system.md` + `30_resources/manuals/monthly-routine-checklist.md`
+- My job/external services > `_me/1_identity/my-job.md`
+- Tools/tech questions > `_me/2_context/tools-stack.md`
+- Decision-making help > `_me/3_knowledge/decisions-log.md`
+- Advice/coaching > `_me/3_knowledge/lessons-learned.md`
+- Preferences > `_me/3_knowledge/preferences.md`
+- Communication style > `_me/1_identity/communication-pref.md`
+- Claude feedback > `_me/4_interaction/feedback-log.md`
+- Routine task check > `_me/2_context/routine-system.md` + `30_resources/manuals/monthly-routine-checklist.md`
 
 ## Memory Sync (Every Session Start)
-> MEMORY.md is Claude's **temporary buffer (inbox)**. `_claude/` is the only permanent store (Single Source of Truth).
-> Content that Claude Code automatically writes to MEMORY.md during a session is classified and migrated to `_claude/` at the start of the next session.
+> MEMORY.md is Claude's **temporary buffer (inbox)**. `_me/` is the only permanent store (Single Source of Truth).
+> Content that Claude Code automatically writes to MEMORY.md during a session is classified and migrated to `_me/` at the start of the next session.
 
 ### Principles
 - **MEMORY.md** = Temporary buffer (working memo between sessions). Keep minimal
-- **`_claude/`** = Permanent store. The authoritative source for all structured knowledge
-- No duplicates: Do not keep information in MEMORY.md that already exists in `_claude/`
+- **`_me/`** = Permanent store. The authoritative source for all structured knowledge
+- No duplicates: Do not keep information in MEMORY.md that already exists in `_me/`
 
 ### Process (Once per session start, before all other routines)
 1. Read MEMORY.md
 2. Classify each item:
    | Content Type | Target File |
    |-------------|-------------|
-   | User preferences/dislikes | `_claude/3_knowledge/preferences.md` |
-   | Tool/service changes | `_claude/2_context/tools-stack.md` |
-   | Project status changes | `_claude/2_context/current-focus.md` |
-   | Important decisions | `_claude/3_knowledge/decisions-log.md` |
-   | Lessons/insights | `_claude/3_knowledge/lessons-learned.md` |
-   | Profile changes | `_claude/1_identity/profile.md` |
-   | Work style changes | `_claude/1_identity/work-style.md` |
-   | Communication preference changes | `_claude/1_identity/communication-pref.md` |
-   | Claude feedback | `_claude/4_interaction/feedback-log.md` |
+   | User preferences/dislikes | `_me/3_knowledge/preferences.md` |
+   | Tool/service changes | `_me/2_context/tools-stack.md` |
+   | Project status changes | `_me/2_context/current-focus.md` |
+   | Important decisions | `_me/3_knowledge/decisions-log.md` |
+   | Lessons/insights | `_me/3_knowledge/lessons-learned.md` |
+   | Profile changes | `_me/1_identity/profile.md` |
+   | Work style changes | `_me/1_identity/work-style.md` |
+   | Communication preference changes | `_me/1_identity/communication-pref.md` |
+   | Claude feedback | `_me/4_interaction/feedback-log.md` |
    | Behavioral rules (for Claude) | Suggest reflecting in CLAUDE.md itself |
-3. Items already reflected in `_claude/` > skip
+3. Items already reflected in `_me/` > skip
 4. New items > Reflect in target file (save after user confirmation)
 5. Clean up MEMORY.md: Remove completed items, keep only the previous session's working state
 
@@ -661,7 +662,7 @@ tags: []
 - Review `current-focus.md` > Check completed items, add new items, update deadlines
 - Scan `10_projects/` > Identify overdue or stalled items
 
-#### Phase 3: _claude Context Check
+#### Phase 3: _me Context Check
 - `profile.md` — Any strengths/traits discovered in this week's conversations to reflect?
 - `work-style.md` — Any changes in work patterns?
 - `my-job.md` — Any new external service/provider info learned?
@@ -708,7 +709,7 @@ tags: []
 | "update company info" | Edit `my-job.md` |
 | "this is my style", "my habits" | Record in `work-style.md` |
 | "update this week's focus" | Refresh `current-focus.md` |
-| "context review", "memory check" | Full scan of `_claude/` > Report empty/stale items |
+| "context review", "memory check" | Full scan of `_me/` > Report empty/stale items |
 
 ### Update Method
 - When an update is detected, after the relevant task is complete, suggest: "Shall I update XX.md with this information?"
@@ -723,7 +724,7 @@ tags: []
 30_resources/            — Reference knowledge
 40_archive/              — Completed/inactive materials
 attachments/             — Images, attached files
-_claude/                 — Claude Memory System (personal context)
+_me/                 — Claude Memory System (personal context)
 ```
 
 ---
@@ -735,7 +736,7 @@ Once all files have been created, do the following:
 1. Display the list of created folders/files
 2. Show the following checklist:
    - [ ] 7 folders created at vault root confirmed
-   - [ ] 4 subfolders + 12 files created in _claude/ confirmed
+   - [ ] 4 subfolders + 12 files created in _me/ confirmed
    - [ ] Personal information entered in profile.md confirmed
    - [ ] Organization/title/services entered in my-job.md confirmed
    - [ ] Preferences entered in communication-pref.md confirmed
